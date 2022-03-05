@@ -30,11 +30,15 @@ export default function App() {
     </View>
   ) : (
     <NavigationContainer>
-        <Stack.Navigator
-          mode="modal"
-          headerMode="none"
-          initialRouteName={signedIn ? "Logged In" : "SignInSignUp"}
-          animationEnabled={false}>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          presentation: "modal",
+        }}
+        headerShown={false}
+        initialRouteName={signedIn ? "Logged In" : "SignInSignUp"}
+        animationEnabled={false}
+      >
         <Stack.Screen component={LoggedInTabStack} name="Logged In" />
         <Stack.Screen component={SignInSignUpScreen} name="SignInSignUp" />
       </Stack.Navigator>
